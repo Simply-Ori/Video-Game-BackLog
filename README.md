@@ -37,4 +37,4 @@ Authentication and login were not included because this project is designed as a
 
 ## Demo Video
 
-[Watch the Demo Video] https://youtu.be/HGcCPtRTK-A
+[Watch the Demo Video] (https://youtu.be/HGcCPtRTK-A)
