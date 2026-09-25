@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Game Backlog</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main>
+		<h1>My Game Backlog</h1>
+		<p>Track the video games you want to play, are currently playing, or have completed.</p>
+
+		<form id="game-form">
+			<div>
+				<label for="game-title">Game title</label>
+				<input type="text" id="game-title" name="game-title" required>
+			</div>
+
+			<div>
+				<label for="platform">Platform</label>
+				<input type="text" id="platform" name="platform" required>
+			</div>
+
+			<div>
+				<label for="status">Status</label>
+				<select id="status" name="status" required>
+					<option value="want-to-play">Want to Play</option>
+					<option value="playing">Playing</option>
+					<option value="completed">Completed</option>
+				</select>
+			</div>
+
+			<div>
+				<label for="rating">Rating (1–10)</label>
+				<input type="number" id="rating" name="rating" min="1" max="10" required>
+			</div>
+
+			<div>
+				<label for="notes">Notes</label>
+				<textarea id="notes" name="notes" rows="4"></textarea>
+			</div>
+
+			<button type="submit">Add Game</button>
+		</form>
+
+		<section aria-labelledby="my-games-heading">
+			<h2 id="my-games-heading">My Games</h2>
+		</section>
+	</main>
+
+	<script src="script.js"></script>
+</body>
+</html>
