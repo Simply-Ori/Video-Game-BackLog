@@ -1,46 +1,36 @@
-# Video-Game-BackLog
-Simple web application that tracks a user's video game backlog
+# My Game Backlog
 
-## Supabase setup
+My Game Backlog is a simple web application for tracking video games I want to play, am currently playing, or have completed. It was created for the Engineering Design 2 assignment.
 
-1. Create a Supabase project.
-2. Open the Supabase SQL Editor and run:
+## Technologies Used
 
-```sql
-create table public.games (
-	id uuid primary key default gen_random_uuid(),
-	title text not null,
-	platform text not null,
-	status text not null check (status in ('want-to-play', 'playing', 'completed')),
-	rating integer not null check (rating between 1 and 10),
-	notes text
-);
+- HTML
+- CSS
+- JavaScript
+- Supabase
 
-alter table public.games enable row level security;
+## Features
 
-create policy "Anyone can read games"
-	on public.games for select
-	to anon
-	using (true);
+The application supports:
 
-create policy "Anyone can add games"
-	on public.games for insert
-	to anon
-	with check (true);
+- Adding games to the backlog
+- Viewing saved games
+- Editing game information
+- Deleting games
 
-create policy "Anyone can edit games"
-	on public.games for update
-	to anon
-	using (true)
-	with check (true);
+## Supabase Database
 
-create policy "Anyone can delete games"
-	on public.games for delete
-	to anon
-	using (true);
-```
+The application uses the existing `public.games` table in Supabase. The table contains these columns:
 
-3. Copy the project URL and browser-safe publishable/anon key from Supabase.
-4. Replace `YOUR_SUPABASE_PROJECT_URL` and `YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY` at the top of `script.js`.
+| Column | Type | Description |
+| --- | --- | --- |
+| `id` | `int8` | Primary key |
+| `title` | `text` | Game title |
+| `platform` | `text` | Gaming platform |
+| `status` | `text` | Current game status |
+| `rating` | `int2` | Game rating from 1 to 10 |
+| `notes` | `text` | Additional notes about the game |
 
-The current policies make the backlog public because authentication has not been added yet. Never put a Supabase service-role key in browser code. Add authentication and user-specific policies before using this for private data.
+Row Level Security is enabled for the table. Public `SELECT`, `INSERT`, `UPDATE`, and `DELETE` policies are in place for this class project.
+
+The Supabase project URL and publishable/anon key are configured at the top of `script.js`.
