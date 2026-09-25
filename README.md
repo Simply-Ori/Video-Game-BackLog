@@ -1,6 +1,10 @@
 # My Game Backlog
 
-My Game Backlog is a simple web application for tracking video games I want to play, am currently playing, or have completed. It was created for the Engineering Design 2 assignment.
+My Game Backlog is a web application for tracking video games I want to play, am currently playing, or have completed. It was created as a simple personal game backlog for my Engineering Design 2 project.
+
+## Live Website
+
+[https://peaceful-gingersnap-3dfbb3.netlify.app/](https://peaceful-gingersnap-3dfbb3.netlify.app/)
 
 ## Technologies Used
 
@@ -8,29 +12,29 @@ My Game Backlog is a simple web application for tracking video games I want to p
 - CSS
 - JavaScript
 - Supabase
+- GitHub
+- Netlify
 
-## Features
+## Main Features
 
-The application supports:
+- Add games to the backlog
+- View saved games
+- Edit game information
+- Delete games
+- Save game data in the Supabase database
 
-- Adding games to the backlog
-- Viewing saved games
-- Editing game information
-- Deleting games
+## How It Works
 
-## Supabase Database
+Games are saved in the Supabase database and loaded when the application opens. The form lets me enter a game's title, platform, status, rating, and notes. I can then update or delete a game from the list.
 
-The application uses the existing `public.games` table in Supabase. The table contains these columns:
+Authentication and login were not included because this project is designed as a simple personal game backlog.
 
-| Column | Type | Description |
-| --- | --- | --- |
-| `id` | `int8` | Primary key |
-| `title` | `text` | Game title |
-| `platform` | `text` | Gaming platform |
-| `status` | `text` | Current game status |
-| `rating` | `int2` | Game rating from 1 to 10 |
-| `notes` | `text` | Additional notes about the game |
+## Run Locally
 
-Row Level Security is enabled for the table. Public `SELECT`, `INSERT`, `UPDATE`, and `DELETE` policies are in place for this class project.
+1. Clone this repository from GitHub.
+2. Open the project folder.
+3. Open `index.html` in a web browser. An internet connection is needed to load the Supabase library and connect to the database.
 
-The Supabase project URL and publishable/anon key are configured at the top of `script.js`.
+## Demo Video
+
+[Demo Video Link]
