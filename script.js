@@ -32,11 +32,20 @@ function getGameFromForm() {
 	};
 }
 
-function createGameDetail(label, value) {
+function createGameDetail(label, value, status = "") {
 	const detail = document.createElement("p");
 	const detailLabel = document.createElement("strong");
+	const detailValue = document.createElement("span");
+	detail.className = `game-detail game-detail--${label.toLowerCase()}`;
 	detailLabel.textContent = `${label}: `;
-	detail.append(detailLabel, value || "None");
+	detailValue.className = "detail-value";
+	detailValue.textContent = value || "None";
+	if (status) {
+		detailValue.classList.add("status-badge", `status-badge--${status}`);
+	} else if (label === "Rating") {
+		detailValue.classList.add("rating-value");
+	}
+	detail.append(detailLabel, detailValue);
 	return detail;
 }
 
@@ -60,7 +69,7 @@ function renderGames() {
 		const details = document.createElement("div");
 		details.append(
 			createGameDetail("Platform", game.platform),
-			createGameDetail("Status", statusLabels[game.status]),
+			createGameDetail("Status", statusLabels[game.status], game.status),
 			createGameDetail("Rating", `${game.rating}/10`),
 			createGameDetail("Notes", game.notes)
 		);
